@@ -92,6 +92,10 @@ a {
   justify-content: space-between;
   height: 50%;
 }
+.game-links > li {
+  display: flex;
+  place-items: center;
+}
 .game-name {
   color: #2f4196;
   font-size: 1.4rem;
@@ -101,6 +105,18 @@ a {
 }
 .game-name:hover {
   color: #5569bf;
+}
+.game-icon {
+  color: #2f4196;
+  font-size: 1.5rem;
+  margin-left: 0.75rem;
+}
+.game-icon-image {
+  width: 1.5rem;
+  margin-left: 0.75rem;
+}
+.rps {
+  width: 2rem;
 }
 @media screen and (min-width: 700px) {
   .sidebar {

@@ -8,8 +8,17 @@ import { Sidebar } from "./components/Sidebar";
 // import pages
 import { Error } from "./pages/Error";
 import { Home } from "./pages/Home";
+import { Login } from "./pages/Login";
+import { Loading } from "./pages/Loading";
+
 function App() {
-  const { setShowSidebar } = useGlobalContext();
+  const { setShowSidebar, isLoggedIn, loading } = useGlobalContext();
+  if (loading) {
+    return <Loading />;
+  }
+  if (!isLoggedIn) {
+    return <Login />;
+  }
   return (
     <Router>
       <div className="closed-sidebar">
