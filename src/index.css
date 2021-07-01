@@ -176,3 +176,18 @@ a {
   }
 }
 /* Login page ends */
+
+/* loading page starts */
+.loading-img-container {
+  width: 100vw;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.loading-img {
+  width: 200px;
+}
+/* loading page ends */
