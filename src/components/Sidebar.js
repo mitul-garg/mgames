@@ -7,7 +7,7 @@ import logo from "../images/logo.svg";
 import rps from "../images/rps.svg";
 import two048 from "../images/2048.svg";
 export const Sidebar = () => {
-  const { showSidebar, setShowSidebar, signOut, user } = useGlobalContext();
+  const { showSidebar, setShowSidebar } = useGlobalContext();
   return (
     <section className={`${showSidebar ? "sidebar show-sidebar" : "sidebar"}`}>
       <header className="sidebar-header">
@@ -56,10 +56,6 @@ export const Sidebar = () => {
           <GiCardPick className="game-icon" />
         </li>
       </ul>
-      <footer className="sidebar-footer">
-        <button onClick={() => signOut()}>Sign Out</button>
-        <h1>{user.displayName}</h1>
-      </footer>
     </section>
   );
 };

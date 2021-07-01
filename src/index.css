@@ -7,6 +7,7 @@
   box-sizing: border-box;
   margin: 0;
   font-family: "Open Sans", sans-serif;
+  letter-spacing: 1.5px;
 }
 li {
   list-style-type: none;
@@ -80,17 +81,19 @@ a {
 .sidebar-header {
   display: flex;
   justify-content: space-between;
-  place-items: center;
+  /* place-items: center; */
+  margin-top: 1rem;
 }
 .sidebar-logo {
   width: 100px;
-  margin-left: 100px;
+  margin-left: 120px;
 }
 .game-links {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 50%;
+  margin-bottom: 7rem;
 }
 .game-links > li {
   display: flex;
@@ -124,3 +127,52 @@ a {
   }
 }
 /* sidebar ends */
+
+/* Login page starts */
+.section-center {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  margin-top: 5rem;
+}
+.sign-in-logo {
+  width: 8rem;
+  margin-bottom: 1rem;
+}
+.sign-in-heading {
+  width: 90%;
+  margin-bottom: 5rem;
+  text-align: center;
+  color: #2f4196;
+}
+.sign-in-btn {
+  display: flex;
+  place-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background-color: #2f4196;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 0.2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  animation: bounce 2s ease-in-out infinite;
+  box-shadow: 2px 2px 2px 2px #5569bf;
+  transition: all 1s ease;
+}
+.sign-in-btn:hover {
+  background-color: #5569bf;
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* Login page ends */

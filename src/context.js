@@ -26,16 +26,20 @@ const AppProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
   const signOut = () => {
+    setLoading(true);
     firebase
       .auth()
       .signOut()
       .then(() => {
         // Sign-out successful.
         setIsLoggedIn(false);
+        setUser(null);
       })
       .catch((error) => {
         // An error happened.
+        console.log(error);
       });
+    setLoading(false);
   };
   const signIn = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -49,15 +53,18 @@ const AppProvider = ({ children }) => {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         // var uid = user.uid;
-        setUser(user);
+        setUser({
+          name: user.displayName,
+          email: user.email,
+        });
         setIsLoggedIn(true);
         // ...
       } else {
         // User is signed out
         // ...
-        console.log("signed out");
+        setUser(null);
+        setIsLoggedIn(false);
       }
-      setUser({});
       setLoading(false);
     });
   }, []);
