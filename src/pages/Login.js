@@ -1,7 +1,6 @@
 import React from "react";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { useGlobalContext } from "../context";
-import { ImCross } from "react-icons/im";
 import { GiCardPick, GiRattlesnake, GiTicTacToe } from "react-icons/gi";
 import logo from "../images/logo.svg";
 import rps from "../images/rps.svg";
@@ -9,7 +8,6 @@ import two048 from "../images/2048.svg";
 
 export const Login = () => {
   const { signIn } = useGlobalContext();
-
   return (
     <div className="section-center">
       <img src={logo} alt="logo" className="sign-in-logo" />
@@ -21,7 +19,21 @@ export const Login = () => {
         <AiFillGoogleCircle />
       </button>
       <div className="display-game-icons">
-        {/* saare games ke icons daalne hei aur thoda kuch animation */}
+        <div>
+          <GiTicTacToe className="login-game-icon" />
+        </div>
+        <div>
+          <img src={rps} className="login-game-img" alt="rps" />
+        </div>
+        <div>
+          <GiRattlesnake className="login-game-icon" />
+        </div>
+        <div>
+          <img src={two048} className="login-game-img" alt="2048" />
+        </div>
+        <div>
+          <GiCardPick className="login-game-icon" />
+        </div>
       </div>
     </div>
   );
