@@ -18,12 +18,16 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+let DB = firebase.firestore();
 
 const AppProvider = ({ children }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
+  const [db, setDB] = useState(DB);
+  const [scores, setScores] = useState({});
+  const [allScores, setAllScores] = useState([]);
 
   const signOut = () => {
     setLoading(true);
@@ -46,7 +50,8 @@ const AppProvider = ({ children }) => {
     firebase.auth().signInWithRedirect(provider);
   };
 
-  useEffect(() => {
+  const firebaseStart = () => {
+    const controller = new AbortController();
     // firebase setup
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -54,10 +59,43 @@ const AppProvider = ({ children }) => {
         // https://firebase.google.com/docs/reference/js/firebase.User
         // var uid = user.uid;
         setUser({
+          uid: firebase.auth().currentUser.uid,
           name: user.displayName,
           email: user.email,
+          photo: user.photoURL,
         });
         setIsLoggedIn(true);
+        db.collection("scores")
+          .doc(user.uid)
+          .get()
+          .then((doc) => {
+            if (doc.exists) {
+              let newScores = doc.data();
+              setScores(newScores);
+            } else {
+              db.collection("scores")
+                .doc(user.uid)
+                .set({
+                  name: user.displayName,
+                  uid: user.uid,
+                  ttt: 0,
+                  rps: 0,
+                  snake: 0,
+                  two048: 0,
+                  cm: 0,
+                })
+                .then(() => {
+                  let newScores = doc.data();
+                  setScores(newScores);
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         // ...
       } else {
         // User is signed out
@@ -67,6 +105,22 @@ const AppProvider = ({ children }) => {
       }
       setLoading(false);
     });
+
+    db.collection("scores")
+      .get()
+      .then((querySnapshot) => {
+        const allScores = querySnapshot.docs.map((doc) => doc.data());
+        setAllScores(allScores);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    controller.abort();
+  };
+
+  useEffect(() => {
+    firebaseStart();
   }, []);
 
   return (
@@ -81,6 +135,10 @@ const AppProvider = ({ children }) => {
         loading,
         setLoading,
         user,
+        db,
+        scores,
+        setScores,
+        allScores,
       }}
     >
       {children}

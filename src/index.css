@@ -248,3 +248,67 @@ a {
   background-color: #5569bf;
 }
 /* error page ends */
+
+/* home page starts */
+.home-section-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
+  margin-top: 4rem;
+}
+.user-card {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #3949ab;
+  color: white;
+  padding: 4rem 2rem 2rem 2rem;
+  border-radius: 2rem;
+  box-shadow: 0.2rem 0.2rem #5569bf;
+  transition: all 1s;
+  animation: entry 2s ease-in-out;
+}
+.user-card:hover {
+  transform: scale(1.1);
+  background-color: #5569bf;
+}
+@keyframes entry {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.user-pic {
+  border-radius: 50%;
+  object-fit: cover;
+}
+.sign-out-btn {
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.sign-out-btn:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.1);
+}
+/* home page ends */
+/* leaderboard starts */
+.leaderboard {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+.active-leaderboard-data {
+  background-color: black;
+  color: white;
+}
+/* leaderboard ends */
