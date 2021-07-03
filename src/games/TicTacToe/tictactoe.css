@@ -12,7 +12,7 @@
 h1 {
   margin-bottom: 1rem;
 }
-h3 {
+h4 {
   margin-bottom: 1rem;
 }
 
@@ -92,8 +92,8 @@ button:hover {
 
 @media only screen and (max-width: 600px) {
   .square {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     font-size: 32px;
     font-weight: bolder;
     padding: 15px;

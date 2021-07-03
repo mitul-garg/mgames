@@ -64,7 +64,10 @@ export const TicTacToe = () => {
   return (
     <div className="app-header">
       <h1>Lets see how many times can you make your X win!!</h1>
-      <h3>Longest Streak of your winning X will be your score!!</h3>
+      <h4>
+        If you press the Back Button in your Browser, your score will be lost!
+      </h4>
+      <button onClick={() => window.location.reload()}>Save Score</button>
       <p className="score">Score : {score}</p>
       <div className="row jc-center">
         <Square
