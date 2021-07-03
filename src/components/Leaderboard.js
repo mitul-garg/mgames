@@ -3,7 +3,9 @@ import { useGlobalContext } from "../context";
 
 export const Leaderboard = () => {
   const { scores, allScores } = useGlobalContext();
-  if (!scores) window.location.reload();
+  if (!scores) {
+    window.location.reload();
+  }
   const currentUserName = scores.name + "-" + scores.uid;
   let totalScores = allScores.map((user) => {
     let totalScore = user.ttt + user.rps + user.snake + user.two048 + user.cm;

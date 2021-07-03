@@ -26,7 +26,7 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const [db, setDB] = useState(DB);
-  const [scores, setScores] = useState({});
+  const [scores, setScores] = useState(null);
   const [allScores, setAllScores] = useState([]);
 
   const signOut = () => {
@@ -50,10 +50,12 @@ const AppProvider = ({ children }) => {
     firebase.auth().signInWithRedirect(provider);
   };
 
+  let newScores;
+
   const firebaseStart = () => {
     const controller = new AbortController();
     // firebase setup
-    firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged(async (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
@@ -65,12 +67,13 @@ const AppProvider = ({ children }) => {
           photo: user.photoURL,
         });
         setIsLoggedIn(true);
-        db.collection("scores")
+        const data = await db
+          .collection("scores")
           .doc(user.uid)
           .get()
           .then((doc) => {
             if (doc.exists) {
-              let newScores = doc.data();
+              newScores = doc.data();
               setScores(newScores);
             } else {
               db.collection("scores")
@@ -85,13 +88,13 @@ const AppProvider = ({ children }) => {
                   cm: 0,
                 })
                 .then(() => {
-                  let newScores = doc.data();
-                  setScores(newScores);
+                  newScores = doc.data();
                 })
                 .catch((error) => {
                   console.log(error);
                 });
             }
+            return newScores;
           })
           .catch((error) => {
             console.log(error);
@@ -103,6 +106,7 @@ const AppProvider = ({ children }) => {
         setUser(null);
         setIsLoggedIn(false);
       }
+      setScores(newScores);
       setLoading(false);
     });
 
@@ -115,7 +119,6 @@ const AppProvider = ({ children }) => {
       .catch((error) => {
         console.log(error);
       });
-
     controller.abort();
   };
 
@@ -136,6 +139,7 @@ const AppProvider = ({ children }) => {
         setLoading,
         user,
         db,
+        setDB,
         scores,
         setScores,
         allScores,

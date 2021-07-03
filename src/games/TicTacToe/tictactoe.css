@@ -1,0 +1,122 @@
+.app-header {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  text-align: center;
+  background-color: #131a28;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+h3 {
+  margin-bottom: 1rem;
+}
+
+.square {
+  width: 150px;
+  height: 150px;
+  font-size: 64px;
+  text-align: center;
+  color: #1cdbf5;
+  font-weight: bolder;
+  padding: 30px;
+}
+
+.fc-aqua {
+  color: #1cdbf5;
+}
+
+.fc-white {
+  color: white;
+}
+
+.fw-600 {
+  font-weight: bolder;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.b-bottom-right {
+  border-right: 15px solid #1cdbf5;
+  border-bottom: 15px solid #1cdbf5;
+}
+
+.b-bottom {
+  border-bottom: 15px solid #1cdbf5;
+}
+
+.b-right {
+  border-right: 15px solid #1cdbf5;
+}
+
+.clear-button {
+  width: max-content;
+  margin: 40px auto 10px auto;
+}
+
+button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #2f4196;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: #5569bf;
+}
+
+.score {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    font-weight: bolder;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .b-bottom-right {
+    border-right: 10px solid #1cdbf5;
+    border-bottom: 10px solid #1cdbf5;
+  }
+
+  .b-bottom {
+    border-bottom: 10px solid #1cdbf5;
+  }
+
+  .b-right {
+    border-right: 10px solid #1cdbf5;
+  }
+
+  .clear-button {
+    width: max-content;
+    margin: 40px auto 10px auto;
+  }
+}
