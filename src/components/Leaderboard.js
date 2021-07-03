@@ -2,9 +2,19 @@ import React from "react";
 import { useGlobalContext } from "../context";
 
 export const Leaderboard = () => {
-  const { scores, allScores } = useGlobalContext();
+  let { scores, allScores, user, setScores } = useGlobalContext();
   if (!scores) {
-    window.location.reload();
+    // window.location.reload();
+    scores = {
+      cm: 0,
+      rps: 0,
+      snake: 0,
+      ttt: 0,
+      two048: 0,
+      uid: user.uid,
+      name: user.name,
+    };
+    setScores(scores);
   }
   const currentUserName = scores.name + "-" + scores.uid;
   let totalScores = allScores.map((user) => {

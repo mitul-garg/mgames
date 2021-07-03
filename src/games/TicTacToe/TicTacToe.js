@@ -29,7 +29,7 @@ export const TicTacToe = () => {
           .doc(scores.uid)
           .set({
             ...scores,
-            ttt: scores.ttt + 1,
+            ttt: score + 1,
           })
           .then()
           .catch((error) => console.log(error));
