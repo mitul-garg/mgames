@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.rps-game {
+  width: 100%;
+}
+.score-board {
+  border: 3px solid black;
+  width: 200px;
+  margin: 20px auto;
+  color: #2f4196;
+  font-size: 46px;
+  border-radius: 4px;
+  text-align: center;
+  padding: 15px 20px;
+  position: relative;
+}
+.badge {
+  background-color: #e2584d;
+  color: white;
+  font-size: 14px;
+  padding: 2px 10px;
+  font-family: Asap, sans-serif;
+}
+#user-label {
+  position: absolute;
+  top: 30px;
+  left: -25px;
+}
+#computer-label {
+  position: absolute;
+  top: 30px;
+  right: -25px;
+}
+.result {
+  font-size: 2rem;
+  color: #2f4196;
+}
+.result > p {
+  text-align: center;
+  font-family: Asap, sans-serif;
+  font-weight: bold;
+}
+.fa {
+  font-size: 60px;
+  color: #2f4196;
+}
+.choices {
+  text-align: center;
+  margin-top: 50px;
+}
+.choice {
+  display: inline-block;
+  border: 4px solid black;
+  border-radius: 50%;
+  padding: 20px;
+  margin: 0px 20px;
+  transition: all 0.3s ease;
+}
+.choice:hover {
+  background-color: #2f4196;
+  cursor: pointer;
+}
+.choice:hover .fa {
+  color: white;
+}
+#action-message {
+  color: #2f4196;
+  text-align: center;
+  font-family: Asap, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.high-score {
+  color: #2f4196;
+  text-align: center;
+  font-family: Asap, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.rps-game > h4 {
+  color: #2f4196;
+  text-align: center;
+  margin-top: 1rem;
+}
