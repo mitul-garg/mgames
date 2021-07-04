@@ -35,6 +35,16 @@ export const TicTacToe = () => {
           .catch((error) => console.log(error));
       }
     }
+    let count = 0;
+    for (let i = 0; i < 9; i++) {
+      if (gameState[i] !== "") {
+        count++;
+      }
+    }
+    if (count === 9 && !winner) {
+      alert("Its a Draw!!");
+      updateGameState(initialState);
+    }
   }, [gameState]);
 
   const checkWinner = () => {
