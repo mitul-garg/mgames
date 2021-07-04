@@ -29,6 +29,8 @@ export const RockPaperScissors = () => {
         return "is cut by";
       case "sp":
         return "cuts";
+      default:
+        return "error";
     }
   };
 
@@ -98,6 +100,8 @@ export const RockPaperScissors = () => {
       case "ss":
         draw(userChoice, computerChoice);
         break;
+      default:
+        console.log("error");
     }
   };
 
