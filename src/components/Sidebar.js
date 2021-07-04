@@ -2,10 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import { ImCross } from "react-icons/im";
-import { GiCardPick, GiRattlesnake, GiTicTacToe } from "react-icons/gi";
+import { GiCardPick, GiTicTacToe } from "react-icons/gi";
 import logo from "../images/logo.svg";
 import rps from "../images/rps.svg";
-import two048 from "../images/2048.svg";
 export const Sidebar = () => {
   const { showSidebar, setShowSidebar } = useGlobalContext();
   return (
@@ -36,18 +35,6 @@ export const Sidebar = () => {
             Rock Paper Scissors{" "}
           </Link>
           <img src={rps} alt="rps" className="game-icon-image rps" />
-        </li>
-        <li onClick={() => setShowSidebar(false)}>
-          <Link to="/games/snake" className="game-name">
-            Snake
-          </Link>
-          <GiRattlesnake className="game-icon" />
-        </li>
-        <li onClick={() => setShowSidebar(false)}>
-          <Link to="/games/2048" className="game-name">
-            2048
-          </Link>
-          <img src={two048} alt="2048" className="game-icon-image" />
         </li>
         <li onClick={() => setShowSidebar(false)}>
           <Link to="/games/cardmatch" className="game-name">

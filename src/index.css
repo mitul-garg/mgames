@@ -178,7 +178,7 @@ a {
 .display-game-icons {
   margin-top: 5rem;
   margin-bottom: 2rem;
-  width: 90%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
 }
@@ -306,9 +306,58 @@ a {
 .leaderboard {
   margin-top: 4rem;
   margin-bottom: 2rem;
+  text-align: center;
 }
-.active-leaderboard-data {
+.leaderboard > h1 {
+  font-size: 1.5rem;
+  color: #2f4196;
+}
+.underline {
+  margin: auto auto;
+  background-color: #2f4196;
+  height: 0.5rem;
+  width: 10rem;
+  margin-bottom: 1rem;
+}
+.rankings {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.leaderboard-card {
+  background-color: #3949ab;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 0.5rem 0.5rem;
+  box-shadow: 0.2rem 0.2rem #5569bf;
+  cursor: pointer;
+  border-radius: 0.6rem;
+  transition: all 0.3s;
+}
+.leaderboard-card:hover {
+  background-color: #5569bf;
+  transform: scale(1.05);
+}
+.first-div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.second-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.current-card {
   background-color: black;
   color: white;
+  box-shadow: 0.2rem 0.2rem rgba(0, 0, 0, 0.507);
+}
+.current-card:hover {
+  background-color: rgba(0, 0, 0, 0.507);
 }
 /* leaderboard ends */

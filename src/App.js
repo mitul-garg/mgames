@@ -12,6 +12,7 @@ import { Login } from "./pages/Login";
 import { Loading } from "./pages/Loading";
 // import games
 import { TicTacToe } from "./games/TicTacToe/TicTacToe";
+import { RockPaperScissors } from "./games/RockPaperScissors/RockPaperScissors";
 
 function App() {
   const { setShowSidebar, isLoggedIn, loading } = useGlobalContext();
@@ -40,9 +41,9 @@ function App() {
         <Route path="/games/tictactoe">
           <TicTacToe />
         </Route>
-        <Route path="/games/rockpaperscissors"></Route>
-        <Route path="/games/snake"></Route>
-        <Route path="/games/2048"></Route>
+        <Route path="/games/rockpaperscissors">
+          <RockPaperScissors />
+        </Route>
         <Route path="/games/cardmatch"></Route>
         <Route path="*">
           <Error />
