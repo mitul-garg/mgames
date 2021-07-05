@@ -9,6 +9,8 @@ import rps from "../images/rps.svg";
 export const Sidebar = () => {
   const url = "https://mgames-cardmatch.netlify.app";
   const { showSidebar, setShowSidebar } = useGlobalContext();
+  if (showSidebar) document.body.style.overflow = "hidden";
+  else document.body.style.overflow = "auto";
   return (
     <section className={`${showSidebar ? "sidebar show-sidebar" : "sidebar"}`}>
       <header className="sidebar-header">
