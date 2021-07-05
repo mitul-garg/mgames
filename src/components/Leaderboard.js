@@ -27,20 +27,21 @@ export const Leaderboard = () => {
       uid: scores.uid,
     };
   });
+
+  const [leaderboardScores, setLeaderboardScores] = useState(totalScores);
+
   totalScores.sort((a, b) => {
     if (a.totalScore === b.totalScore) return a.name - b.name;
     return b.totalScore - a.totalScore;
   });
   // console.log(totalScores);
 
-  const [leaderboardScores, setLeaderboardScores] = useState(totalScores);
-
   const sortByTTT = () => {
     totalScores.sort((a, b) => {
       if (a.ttt === b.ttt) return b.totalScore - a.totalScore;
       return b.ttt - a.ttt;
     });
-    setLeaderboardScores(totalScores);
+    setLeaderboardScores([...totalScores]);
   };
 
   const sortByRPS = () => {
@@ -48,7 +49,7 @@ export const Leaderboard = () => {
       if (a.rps === b.rps) return b.totalScore - a.totalScore;
       return b.rps - a.rps;
     });
-    setLeaderboardScores(totalScores);
+    setLeaderboardScores([...totalScores]);
   };
 
   const sortByTotal = () => {
@@ -56,7 +57,7 @@ export const Leaderboard = () => {
       if (a.totalScore === b.totalScore) return a.name - b.name;
       return b.totalScore - a.totalScore;
     });
-    setLeaderboardScores(totalScores);
+    setLeaderboardScores([...totalScores]);
   };
 
   return (
