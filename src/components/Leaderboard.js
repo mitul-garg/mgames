@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGlobalContext } from "../context";
 
 export const Leaderboard = () => {
@@ -17,7 +17,7 @@ export const Leaderboard = () => {
     setScores(scores);
   }
   let totalScores = allScores.map((scores) => {
-    let totalScore = scores.ttt + scores.rps + scores.cm;
+    let totalScore = scores.ttt + scores.rps;
     return {
       totalScore: totalScore,
       name: scores.name,
@@ -32,12 +32,45 @@ export const Leaderboard = () => {
     return b.totalScore - a.totalScore;
   });
   // console.log(totalScores);
+
+  const [leaderboardScores, setLeaderboardScores] = useState(totalScores);
+
+  const sortByTTT = () => {
+    totalScores.sort((a, b) => {
+      if (a.ttt === b.ttt) return b.totalScore - a.totalScore;
+      return b.ttt - a.ttt;
+    });
+    setLeaderboardScores(totalScores);
+  };
+
+  const sortByRPS = () => {
+    totalScores.sort((a, b) => {
+      if (a.rps === b.rps) return b.totalScore - a.totalScore;
+      return b.rps - a.rps;
+    });
+    setLeaderboardScores(totalScores);
+  };
+
+  const sortByTotal = () => {
+    totalScores.sort((a, b) => {
+      if (a.totalScore === b.totalScore) return a.name - b.name;
+      return b.totalScore - a.totalScore;
+    });
+    setLeaderboardScores(totalScores);
+  };
+
   return (
     <section className="leaderboard">
       <h1>Leaderboard</h1>
       <div className="underline"></div>
+      <div className="btn-container">
+        <button onClick={() => sortByTotal()}>Total</button>
+        <button onClick={() => sortByTTT()}>TicTacToe</button>
+        <button onClick={() => sortByRPS()}>RockPaperScissors</button>
+      </div>
+      <div className="underline"></div>
       <div className="rankings">
-        {totalScores.map((item, index) => {
+        {leaderboardScores.map((item, index) => {
           if (item.uid === scores.uid) {
             return (
               <div key={index} className="leaderboard-card current-card">
@@ -50,7 +83,6 @@ export const Leaderboard = () => {
                   <p>Total Score : {item.totalScore}</p>
                   <p>TicTacToe : {item.ttt}</p>
                   <p>RockPaperScissors : {item.rps}</p>
-                  <p>Card Match : {item.cm}</p>
                 </div>
               </div>
             );
@@ -66,7 +98,6 @@ export const Leaderboard = () => {
                 <p>Total Score : {item.totalScore}</p>
                 <p>TicTacToe : {item.ttt}</p>
                 <p>RockPaperScissors : {item.rps}</p>
-                <p>Card Match : {item.cm}</p>
               </div>
             </div>
           );

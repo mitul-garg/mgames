@@ -361,4 +361,11 @@ a {
 .current-card:hover {
   background-color: rgba(0, 0, 0, 0.507);
 }
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-container > button {
+  font-size: 1rem;
+}
 /* leaderboard ends */

@@ -5,7 +5,9 @@ import { ImCross } from "react-icons/im";
 import { GiCardPick, GiTicTacToe } from "react-icons/gi";
 import logo from "../images/logo.svg";
 import rps from "../images/rps.svg";
+
 export const Sidebar = () => {
+  const url = "https://mgames-cardmatch.netlify.app";
   const { showSidebar, setShowSidebar } = useGlobalContext();
   return (
     <section className={`${showSidebar ? "sidebar show-sidebar" : "sidebar"}`}>
@@ -37,9 +39,9 @@ export const Sidebar = () => {
           <img src={rps} alt="rps" className="game-icon-image rps" />
         </li>
         <li onClick={() => setShowSidebar(false)}>
-          <Link to="/games/cardmatch" className="game-name">
-            Card Match
-          </Link>
+          <a href={url} className="game-name">
+            Play a Fun Game!!
+          </a>
           <GiCardPick className="game-icon" />
         </li>
       </ul>

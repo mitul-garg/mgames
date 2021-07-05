@@ -44,7 +44,6 @@ function App() {
         <Route path="/games/rockpaperscissors">
           <RockPaperScissors />
         </Route>
-        <Route path="/games/cardmatch"></Route>
         <Route path="*">
           <Error />
         </Route>
